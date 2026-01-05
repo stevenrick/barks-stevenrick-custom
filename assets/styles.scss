@@ -1,0 +1,56 @@
+/*
+ * Custom Theme Styles for barks-stevenrick-custom
+ *
+ * This file defines Hugo template variables from config, then imports:
+ * 1. Base Barks theme SCSS files (from the barks theme)
+ * 2. Custom override SCSS files
+ * 3. New page-specific styles
+ */
+
+/*
+Read the variables defined in the config.toml file and define the corresponding
+SCSS variables. This is achieved by `resources.ExecuteAsTemplate` in the <head>;
+warnings by a linter that the following is not valid SCSS can be ignored.
+*/
+
+$title-font: {{ .Site.Params.typography.title_font | default "Bree Serif" }};
+$body-font: {{ .Site.Params.typography.body_font | default "Source Sans Pro" }};
+
+$background-color: {{ .Site.Params.colors.background_color | default "#fcfbf9" }};
+$text-color: {{ .Site.Params.colors.text_color | default "#333333" }};
+$link-color: {{ .Site.Params.colors.link_color | default "#60c17d" }};
+
+// Additional custom variables
+$secondary-text-color: #666666;
+$border-color: rgba(0, 0, 0, 0.1);
+
+/*
+Load the base Barks theme stylesheets first, then our custom overrides.
+Hugo's theme layering will find these in the barks theme directory.
+*/
+
+// Base Barks imports - we'll override these with custom- files
+@import "_default.scss";
+@import "code.scss";
+@import "footer.scss";
+@import "header.scss";
+@import "navigation.scss";
+@import "landing_page.scss";
+@import "main.scss";
+@import "post.scss";
+@import "typography.scss";
+
+// Custom overrides - these will cascade on top of base styles
+@import "custom-default.scss";
+@import "custom-footer.scss";
+@import "custom-header.scss";
+@import "custom-landing-page.scss";
+@import "custom-main.scss";
+@import "custom-navigation.scss";
+@import "custom-typography.scss";
+
+// Completely new page-specific styles
+@import "affiliations.scss";
+@import "content.scss";
+@import "portfolio-single.scss";
+@import "publications.scss";

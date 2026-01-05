@@ -1,0 +1,139 @@
+// Affiliations & Service page styling with modern card-based layout
+
+.affiliations-page {
+    // Section headers (Current Roles, Past Involvement)
+    h2 {
+        font-size: 22px;
+        margin-top: 2em;
+        margin-bottom: 1em;
+        color: $text-color;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 0.4em;
+
+        &:first-of-type {
+            margin-top: 1em;
+        }
+
+        // Decorative underline
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: $link-color;
+            opacity: 0.6;
+        }
+    }
+
+    // Intro paragraph
+    > p:first-of-type {
+        font-size: 16px;
+        margin-bottom: 1.5em;
+        padding: 1.25em;
+        background: rgba(96, 193, 125, 0.04);
+        border-radius: 6px;
+        border-left: 3px solid $link-color;
+        line-height: 1.6;
+    }
+
+    // Each affiliation entry (paragraphs starting with strong)
+    p:has(strong) {
+        padding: 1.5em;
+        margin-bottom: 1em;
+        background: rgba(0, 0, 0, 0.01);
+        border-radius: 6px;
+        border-left: 3px solid transparent;
+        transition: all 0.2s ease;
+        line-height: 1.6;
+        position: relative;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-left-color: $link-color;
+            transform: translateX(6px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        // Role/project title
+        strong {
+            display: block;
+            font-size: 17px;
+            margin-bottom: 0.25em;
+            color: $text-color;
+            font-weight: 600;
+        }
+
+        // Role descriptor (in parentheses)
+        strong + em,
+        strong:has(+ em) {
+            color: $link-color;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        // Links
+        a {
+            color: $link-color;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(96, 193, 125, 0.3);
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-bottom-color: $link-color;
+            }
+        }
+    }
+
+    // Differentiate current roles with stronger accent
+    h2:first-of-type + p:has(strong) {
+        border-left-width: 4px;
+        border-left-color: rgba(96, 193, 125, 0.3);
+        background: rgba(96, 193, 125, 0.02);
+
+        &:hover {
+            border-left-color: $link-color;
+        }
+    }
+
+    // Grid layout for multiple items (optional enhancement)
+    @media (min-width: 900px) {
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5em;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+    .affiliations-page {
+        h2 {
+            font-size: 20px;
+            margin-top: 1.75em;
+            margin-bottom: 0.75em;
+        }
+
+        > p:first-of-type {
+            padding: 1em;
+            margin-bottom: 1.25em;
+        }
+
+        p:has(strong) {
+            padding: 1.25em;
+            margin-bottom: 0.75em;
+
+            strong {
+                font-size: 16px;
+            }
+        }
+    }
+}

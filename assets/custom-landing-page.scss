@@ -1,0 +1,187 @@
+// Custom overrides for landing_page.scss
+
+// Tagline - full width above columns (completely new)
+.landing-page-tagline {
+    font-size: 24px;
+    color: $text-color;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.75em;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: $link-color;
+        opacity: 0.6;
+    }
+}
+
+.landing-page-wrapper {
+    flex-direction: row-reverse;        // Changed from row
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.landing-page-content {
+    width: 50%;                         // Changed from 64%
+
+    // Section cards (completely new)
+    .section-card {
+        background: rgba(0, 0, 0, 0.02);
+        border-radius: 6px;
+        padding: 1.25em 1.5em;
+        margin-bottom: 1.25em;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 0.75em;
+            color: $text-color;
+            font-weight: 600;
+        }
+
+        > p:last-child,
+        > ul:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Call-to-action card (completely new)
+    .cta-card {
+        background: rgba(96, 193, 125, 0.05);
+        border-radius: 6px;
+        padding: 1.25em 1.5em;
+        margin-top: 1.5em;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(96, 193, 125, 0.08);
+            box-shadow: 0 2px 8px rgba(96, 193, 125, 0.15);
+        }
+
+        font-size: 16px;
+
+        a {
+            color: $link-color;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(96, 193, 125, 0.4);
+            transition: all 0.2s ease;
+            padding-bottom: 2px;
+
+            &:hover {
+                border-bottom-color: $link-color;
+                color: darken(#60c17d, 10%);
+            }
+        }
+    }
+
+    // List items (completely new styling)
+    ul {
+        margin-left: 0;
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            margin-bottom: 0.65em;
+            line-height: 1.55;
+            position: relative;
+            padding-left: 1.15em;
+
+            &::before {
+                content: '▸';
+                position: absolute;
+                left: 0;
+                color: $link-color;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+.landing-page-image {
+    width: 45%;                         // Changed from 30%
+}
+
+.landing-page-image img {
+    max-width: 550px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .landing-page-image img {
+        max-width: 550px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .landing-page-tagline {
+        font-size: 20px;
+        margin-bottom: 1.25em;
+        padding-bottom: 0.65em;
+
+        &::after {
+            width: 50px;
+        }
+    }
+
+    .landing-page-wrapper {
+        gap: 1.25rem;
+    }
+
+    .landing-page-content {
+        width: 100%;
+        margin-bottom: 1em;
+
+        .section-card {
+            padding: 1em 1.25em;
+            margin-bottom: 1em;
+
+            h2 {
+                font-size: 18px;
+                margin-bottom: 0.65em;
+            }
+        }
+
+        .cta-card {
+            padding: 1em 1.25em;
+            margin-top: 1.25em;
+            font-size: 15px;
+        }
+
+        ul li {
+            margin-bottom: 0.55em;
+            line-height: 1.5;
+        }
+    }
+
+    .landing-page-image {
+        width: 100%;
+        margin: auto !important;
+    }
+
+    .landing-page-image img {
+        max-width: 400px;
+    }
+}

@@ -1,0 +1,24 @@
+// Custom overrides for footer.scss
+
+footer {
+    border-top: 1px solid $border-color;  // Changed from $text-color
+    color: $secondary-text-color;          // Changed from $text-color
+
+    .fas, .fab, .ai {
+        transition: all 0.2s ease;         // Changed from .15s ease-in-out
+    }
+
+    .fas:hover, .fab:hover, .ai:hover {
+        transform: scale(1.1);             // Changed from 1.5 (less dramatic)
+    }
+}
+
+footer a {
+    text-decoration-style: solid;           // Changed from dotted
+    text-decoration-color: rgba($text-color, 0.2);
+    transition: text-decoration-color 0.2s ease;
+}
+
+footer a:hover {
+    text-decoration-color: $link-color;
+}

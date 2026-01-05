@@ -1,0 +1,94 @@
+// Content-specific styling patterns
+
+// Project metadata bar for portfolio pages
+.project-meta {
+    font-size: 14px;
+    color: $secondary-text-color;
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $border-color;
+}
+
+// Award badges and highlights
+.award-badge {
+    display: inline-block;
+    font-size: 14px;
+    color: $link-color;
+    font-weight: 600;
+}
+
+// Filter/navigation bars
+.filter-bar {
+    font-size: 16px;
+    color: $secondary-text-color;
+    margin-bottom: 2em;
+    font-style: italic;
+
+    a {
+        margin: 0 0.5em;
+        color: $link-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// Related content footer
+.related-projects,
+.related-content {
+    margin-top: 3em;
+    padding-top: 2em;
+    border-top: 1px solid $border-color;
+    font-size: 16px;
+    color: $secondary-text-color;
+
+    strong {
+        color: $text-color;
+    }
+}
+
+// Landing page improvements
+.landing-page-content {
+    h2 {
+        font-size: 20px;
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+    }
+
+    // Currently section - make it stand out
+    h2:first-of-type + p {
+        font-size: 19px;
+    }
+}
+
+// Horizontal rules as visual separators
+hr {
+    border: 0;
+    height: 1px;
+    background: $border-color;
+    margin: 2em 0;
+}
+
+// Section organization
+.section-group {
+    margin-bottom: 2.5em;
+}
+
+// Subtle emphasis for metadata
+.meta-info {
+    font-size: 14px;
+    color: $secondary-text-color;
+}
+
+// Category tags
+.category-tags {
+    font-size: 14px;
+    color: $secondary-text-color;
+    margin-top: 2em;
+
+    strong {
+        color: $text-color;
+    }
+}

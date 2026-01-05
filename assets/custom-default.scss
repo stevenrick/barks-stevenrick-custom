@@ -1,0 +1,72 @@
+// Custom overrides for _default.scss
+// These styles layer on top of the base Barks theme
+
+// Focus states for accessibility
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid $link-color;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// Override body styles
+body {
+	font-size: 18px;  // Changed from 20px
+	line-height: 1.7;  // Changed from 160%
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+// Override layout containers to use flexbox instead of table
+.outer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: static;  // Override absolute positioning
+    height: auto;      // Override 100%
+    width: auto;       // Override 100%
+}
+
+.middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    vertical-align: initial;  // Override middle
+}
+
+// Override .inner container for wider layout
+.inner {
+    width: 100%;
+    max-width: 1100px;  // Changed from 768px
+    padding: 0 5%;
+}
+
+// Enhanced responsive container widths
+@media only screen and (min-width: 1200px) {
+    .inner {
+        width: 60%;
+        padding: 0 32px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .inner {
+        width: 80%;
+        padding: 0 24px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .inner {
+        width: 90%;
+        padding: 0 16px;
+    }
+}
+
+// Center images by default
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

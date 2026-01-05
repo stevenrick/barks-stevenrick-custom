@@ -1,0 +1,124 @@
+// Custom overrides for main.scss
+
+main {
+    a {
+        text-decoration-style: solid;               // Changed from dotted
+        text-decoration-color: rgba($text-color, 0.2);
+        transition: text-decoration-color 0.2s ease;
+    }
+
+    a:hover {
+        text-decoration-color: $link-color;
+    }
+
+    // Grid system for portfolio (completely new)
+    .grid {
+        width: 100%;
+        margin-inline: auto;
+        margin-block: 3em;
+        grid-auto-rows: 1fr;
+
+        --gap: 1.5rem;
+        --line-offset: calc(var(--gap) / 2);
+        --line-thickness: 1px;
+        --line-color: rgba(96, 193, 125, 0.3);
+
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        overflow: hidden;
+        gap: var(--gap);
+    }
+
+    .grid__item {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-radius: 4px;
+        position: relative;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    // Decorative grid lines
+    .grid__item::before,
+    .grid__item::after {
+        content: '';
+        position: absolute;
+        background-color: var(--line-color);
+        z-index: 0;
+    }
+
+    .grid__item::after {
+        inline-size: 100vw;
+        block-size: var(--line-thickness);
+        inset-inline-start: 0;
+        inset-block-start: calc(var(--line-offset) * -1);
+    }
+
+    .grid__item::before {
+        inline-size: var(--line-thickness);
+        block-size: 100vh;
+        inset-block-start: 0;
+        inset-inline-start: calc(var(--line-offset) * -1);
+    }
+
+    // Image hero styling
+    .image-hero {
+        padding-bottom: 30px;
+    }
+
+    .image-hero-small {
+        margin-bottom: 1em;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+    }
+
+    // Grid item link styling
+    .grid__item a {
+        display: block;
+        text-decoration: none;
+        color: $text-color;
+        font-weight: 600;
+
+        &:hover {
+            color: $link-color;
+
+            .image-hero-small img {
+                transform: scale(1.02);
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+// Responsive grid layouts
+@media (min-width: 768px) and (max-width: 1023px) {
+    main {
+        .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    main {
+        .grid {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+}

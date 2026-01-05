@@ -1,0 +1,60 @@
+// Custom overrides for navigation.scss
+
+nav {
+    margin-bottom: 2em;                     // Changed from 1em
+}
+
+nav a {
+    transition: all 0.2s ease;
+    position: relative;
+    font-weight: 500;
+
+    &:hover {
+        color: darken(#60c17d, 10%);
+    }
+}
+
+nav a::after {
+    height: 2px;                            // Changed from 4px
+    transition: width 0.25s ease;           // Added ease
+}
+
+// Active page indicator (if Hugo provides .active class)
+nav a.active {
+    color: darken(#60c17d, 15%);
+
+    &::after {
+        width: 100%;
+        opacity: 0.5;
+    }
+}
+
+nav li {
+	font-size: 18px;                        // Changed from 24px
+    margin: 0 20px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+// Remove bullet separator
+nav li + li:before {
+    content: "";
+    padding: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    nav {
+        border-top: 1px solid rgba($text-color, 0.1);
+        border-bottom: 1px solid rgba($text-color, 0.1);
+        padding: 1em;
+    }
+
+    nav li {
+        padding: 6px 0;
+        display: block;
+        margin: 0;
+    }
+}

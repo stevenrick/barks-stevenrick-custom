@@ -1,0 +1,147 @@
+// Publications page styling with modern card-based layout
+
+.publications-page {
+    // Year section headers
+    h4 {
+        font-size: 20px;
+        margin-top: 2.5em;
+        margin-bottom: 1em;
+        color: $text-color;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 0.4em;
+
+        &:first-of-type {
+            margin-top: 1em;
+        }
+
+        // Decorative underline
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: $link-color;
+            opacity: 0.5;
+        }
+    }
+
+    // Publication entries as subtle cards
+    p {
+        padding: 1.25em;
+        margin-bottom: 1em;
+        background: rgba(0, 0, 0, 0.01);
+        border-radius: 6px;
+        border-left: 3px solid transparent;
+        transition: all 0.2s ease;
+        line-height: 1.6;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-left-color: $link-color;
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        // Publication title links
+        a {
+            color: $text-color;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(96, 193, 125, 0.3);
+            transition: all 0.2s ease;
+
+            &:hover {
+                color: $link-color;
+                border-bottom-color: $link-color;
+            }
+        }
+
+        // Venue names (italicized)
+        em {
+            color: $secondary-text-color;
+            font-size: 15px;
+        }
+    }
+
+    // Award indicators
+    .award-badge,
+    p:has(.award-badge) {
+        position: relative;
+    }
+
+    // Style for award emoji + text
+    strong:has(+ em) {
+        // Author names remain standard bold
+    }
+
+    // Bottom section with research areas
+    hr {
+        margin-top: 2.5em;
+        margin-bottom: 1.5em;
+        border: 0;
+        height: 1px;
+        background: rgba(96, 193, 125, 0.2);
+    }
+
+    // Research areas footer
+    p:last-of-type {
+        background: rgba(96, 193, 125, 0.04);
+        border-left-color: $link-color;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 1.25em;
+
+        strong {
+            color: $link-color;
+        }
+
+        &:hover {
+            transform: none;
+        }
+    }
+
+    // Intro text styling
+    > p:first-of-type {
+        font-size: 16px;
+        margin-bottom: 1.5em;
+        padding: 1.25em;
+        background: rgba(96, 193, 125, 0.04);
+        border-radius: 6px;
+        border-left: 3px solid $link-color;
+
+        a {
+            color: $link-color;
+            font-weight: 500;
+        }
+
+        &:hover {
+            transform: none;
+            box-shadow: none;
+            border-left-color: $link-color;
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+    .publications-page {
+        h4 {
+            font-size: 18px;
+            margin-top: 2em;
+            margin-bottom: 0.75em;
+        }
+
+        p {
+            padding: 1em;
+            margin-bottom: 0.75em;
+        }
+
+        > p:first-of-type {
+            padding: 1em;
+            margin-bottom: 1.25em;
+        }
+    }
+}

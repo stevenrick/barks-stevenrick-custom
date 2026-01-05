@@ -1,0 +1,16 @@
+name = "Barks Steven Rick Custom"
+license = "MIT"
+licenselink = "https://github.com/stevenrick/barks-stevenrick-custom/blob/main/LICENSE"
+description = "Custom theme extensions for the Barks Hugo theme, adding academic portfolio, publications, and affiliations features"
+homepage = "https://github.com/stevenrick/barks-stevenrick-custom"
+demosite = "https://stevenrick.com/"
+tags = ["academic", "portfolio", "personal", "minimal", "responsive", "publications"]
+features = ["Portfolio grid system", "Publications page", "Affiliations page", "Enhanced landing page", "Responsive design"]
+min_version = "0.128.0"
+
+[author]
+  name = "Steven R. Rick"
+  homepage = "https://stevenrick.com/"
+
+# This theme is designed to be used in composition with the base Barks theme
+# In your hugo.toml, use: theme = ['barks-stevenrick-custom', 'barks']

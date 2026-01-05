@@ -1,0 +1,23 @@
+
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{ with .Data.Pages }}
+    <div class="grid">
+    {{ range $i, $e := . }}
+        <div class="grid__item center">
+            <a href="{{ .RelPermalink }}">
+                {{ if .Params.featured_image }}
+                    {{ partial "image-hero-small.html" . }}
+                {{ end }}
+                {{ .Title }}
+            </a>
+        </div>
+    {{ end }}
+    </div>
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,37 @@
+// Custom overrides for typography.scss
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;                       // Changed from center
+    font-weight: 600;                       // Changed from 700
+    margin-bottom: 0.65em;                  // Changed from 0.6em
+}
+
+h1 {
+	font-size: 28px;                        // Changed from 26px
+    margin-top: 1.5em;                      // Changed from 2.4em
+}
+
+h2 {
+	font-size: 22px;                        // Same
+    margin-top: 2em;                        // Same
+}
+
+h3 {
+	font-size: 19px;                        // Changed from 18px
+    margin-top: 1.75em;                     // Changed from 1.8em
+}
+
+h4 {
+    font-size: 17px;                        // Changed from 16px
+    margin-top: 1.5em;                      // Changed from 1.6em
+}
+
+h5 {
+    font-size: 16px;                        // Changed from 14px
+    margin-top: 1.5em;                      // Changed from 1.4em
+}
+
+h6 {
+    font-size: 14px;                        // Changed from 12px
+    margin-top: 1.25em;                     // Changed from 1.2em
+}

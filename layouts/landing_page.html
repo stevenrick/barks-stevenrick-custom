@@ -1,0 +1,49 @@
+
+{{ define "main" }}
+{{- $content := .RawContent -}}
+
+{{- /* Split content by the horizontal rule to separate CTA */ -}}
+{{- $mainAndCta := split $content "---" -}}
+{{- $mainContent := index $mainAndCta 0 -}}
+
+{{- /* Split main content into sections */ -}}
+{{- $sections := split $mainContent "##" -}}
+
+{{- /* First section is the tagline - full width above columns */ -}}
+{{- if gt (len $sections) 0 -}}
+    <p class="landing-page-tagline">{{ index $sections 0 | strings.TrimSpace }}</p>
+{{- end -}}
+
+<div class="landing-page-wrapper">
+    <div class="landing-page-content">
+        <div>
+            {{- /* Process sections as cards */ -}}
+            {{- range $index, $section := after 1 $sections -}}
+                {{- if or (hasPrefix $section " Current") (hasPrefix $section " Prior") -}}
+
+                    <div class="section-card">
+                        <h2>{{ strings.TrimSpace (index (split $section "\n") 0) | strings.TrimPrefix " " }}</h2>
+                        {{- $lines := after 1 (split $section "\n") -}}
+                        {{- $body := delimit $lines "\n" | strings.TrimSpace -}}
+                        {{ $body | markdownify }}
+                    </div>
+                {{- end -}}
+            {{- end -}}
+
+            {{- /* CTA section */ -}}
+            {{- if gt (len $mainAndCta) 1 -}}
+                {{- $ctaContent := index $mainAndCta 1 | strings.TrimSpace -}}
+                {{- if ne $ctaContent "" -}}
+
+                    <div class="cta-card">
+                        {{ $ctaContent | markdownify }}
+                    </div>
+                {{- end -}}
+            {{- end -}}
+        </div>
+    </div>
+    <div class="landing-page-image">
+        <img src="{{ .Params.image }}" alt="{{ .Site.Params.header.title }}" width="221" height="331">
+    </div>
+</div>
+{{ end }}
