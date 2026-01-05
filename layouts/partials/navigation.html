@@ -1,7 +1,12 @@
 
 {{ if not (eq .Site.Params.navigation.show_navigation false) }}
 <nav>
-    <ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    <ul class="nav-menu">
     {{ range .Site.Menus.main }}
         <li><strong><a href="{{ .URL }}">{{ .Name }}</a></strong></li>
     {{ end }}
